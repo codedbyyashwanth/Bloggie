@@ -1,0 +1,38 @@
+
+
+@mixin flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+}
+
+
+@mixin flex-around {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+}
+
+@mixin flex-between {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+}
+
+@mixin window {
+        width: 100%;
+        max-width: 1350px;
+        margin: 0 auto;
+        padding: 0 1.4rem;
+}
+
+@mixin scaleAnim {
+        transition: ease 0.4s;
+
+        &:hover {
+                transform: scale(1.05);
+        }
+}
