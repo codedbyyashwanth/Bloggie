@@ -57,12 +57,13 @@ header {
         }
 
         .nav-container {
-                a {
+                .nav-item {
                         color: $black-color;
                         font-weight: 500;
                         text-decoration: none;
                         margin: 0 0.7rem;
                         transition: ease 0.4s;
+                        position: relative;
 
                         &:hover {
                                 color: $accent-color;
@@ -305,15 +306,17 @@ header {
 
                 .card:nth-child(2) {
                         grid-area: card-2;
+                        min-height: 35vh;
                 }
 
                 .card:nth-child(3) {
                         grid-area: card-3;
+                        min-height: 35vh;
                 }
 
                 .card {
                         border-radius: 20px;
-                        background-color: #888888;        
+                        background-color: #888888;
                         position: relative;
                         overflow: hidden;
 
@@ -856,8 +859,11 @@ header {
 footer {
         width: 100% !important;
         background-color: #152249;
-        padding:  4rem 2rem 0 2rem;
         color: #fafafa;
+
+        @media (min-width: 600px) {   
+                padding:  4rem 2rem 0 2rem;
+        }
 
         .container {
                 display: flex;
@@ -868,7 +874,7 @@ footer {
                 @include window;
 
                 .logo-section {
-                        margin: 1rem 0;
+                        margin: 1rem;
                         .img-container {
                                 width: 150px;
 
@@ -886,7 +892,7 @@ footer {
                 }
 
                 .content {
-                        margin: 1rem 0;
+                        margin: 1rem;
                         h4 {
                                 font-size: 1.2rem;
                         }
@@ -900,6 +906,10 @@ footer {
                                         a {
                                                 color: $white-color;
                                                 text-decoration: none;
+
+                                                &:hover {
+                                                        color: $accent-color;
+                                                }
                                         }
                                 }
                         }
@@ -921,4 +931,129 @@ footer {
                 }
         }
         
+}
+
+.author-section {
+        .author-header {
+                width: 100%;
+                background-color: #ff0000;
+                .author-container {
+                        width: 100%;
+                }
+        }
+}
+
+.closing-bg {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 50;
+        background-color: rgba(0, 0, 0, 0.6);
+}
+
+.search-section {
+        width: 100%;
+        max-width: 600px;
+        position: absolute;
+        top: 6rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+
+        .container {
+                .input-container {
+                        width: 95%;
+                        max-width: 600px;
+                        margin: 0 auto;
+                        background-color: #fff;
+                        padding: 1.6rem 1.6rem;
+                        border-radius: 20px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        input {
+                                width: 100%;
+                                border: none;
+                                outline: none;
+                                font-size: 1.8rem;
+                                font-weight: 600;
+                        }
+
+                        .icon {
+                                font-size: 2.3rem;
+                                cursor: pointer;
+                        }
+                }
+
+                .search-data-container {
+                        margin: 1rem auto;
+                        width: 95%;
+                        max-width: 600px;
+                        max-height: 60vh;
+                        overflow-y: scroll;
+                        border-radius: 20px;
+                        padding: 0.5rem 1.4rem;
+                        background-color: #fff;
+
+                        /* width */
+                        &::-webkit-scrollbar {
+                                width: 5px;
+                              }
+                              
+                              /* Track */
+                        &::-webkit-scrollbar-track {
+                                margin: 2rem;
+                                margin-right: 1rem;
+                                box-shadow: inset 0 0 5px rgb(200, 200, 200);
+                                border-radius: 10px;
+                              }
+                              
+                              /* Handle */
+                        &::-webkit-scrollbar-thumb {
+                                background: rgba($black-color, 0.3);
+                                border-radius: 10px;
+                              }
+
+                        .card-container {
+                                .item {
+                                        display: flex;
+                                        justify-content: start;
+                                        align-items: center;
+                                        margin: 1rem 0;
+                                        cursor: pointer;
+
+                                        .img-container {
+                                                width: 80px;
+                                                aspect-ratio: 16/10;
+                                                border-radius: 10px;
+                                                overflow: hidden;
+                                                margin-right: 1rem;
+
+                                                img {
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        object-fit: cover;
+                                                        object-position: center;
+                                                }
+                                        }
+
+                                        .text-content {
+                                                h3 {
+                                                        font-weight: 600;
+                                                }
+
+                                                p {
+                                                        font-size: 0.7rem;
+                                                        color: rgba($black-color, 0.8);
+                                                }
+                                        }
+                                }
+                        }
+                }
+        }
 }

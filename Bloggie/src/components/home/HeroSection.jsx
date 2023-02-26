@@ -1,6 +1,7 @@
 
 
-const HeroSection = ( ) => {
+const HeroSection = () => {
+
         return (
                 <section className="hero-section">
                         <div className="container">

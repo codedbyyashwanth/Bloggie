@@ -1,0 +1,398 @@
+
+
+.posts-page {
+
+        .container {
+                display: flex;
+                justify-content: space-between;
+                margin: 4rem 0;
+
+                @media (max-width: 700px) {
+                        flex-wrap: wrap;
+
+                        .main-layout-section {
+                                padding: 0;
+                        }
+
+                        .side-section {
+                                width: max-content;
+                        }
+                }
+        }
+
+        .main-layout-section {
+                width: 100%;
+                max-width: 1000px;
+                padding: 0 1rem;
+                // background-color: #bd1414;
+
+                .title {
+                        font-size: clamp(1.3rem, 4vw, 3rem);
+                }
+
+                .tags {
+                        margin: 1rem 0;
+
+                        .tag {
+                                padding: 0.4rem 0.8rem;
+                                border-radius: 40px;
+                                margin: 0 0.2rem;
+                                font-size: 0.8rem;
+                                background-color: #e1e1e1;
+                                cursor: pointer;
+                                transition: ease 0.4s;
+
+                                &:hover {
+                                        color: $white-color;
+                                        background-color: $accent-color;
+                                }
+                        }
+                }
+
+                .profile-container {
+                        display: flex;
+                        justify-content: start;
+                        align-items: center;
+                        margin: 2rem 0;
+
+                        .img-container {
+                                width: 45px;
+                                height: 45px;
+                                border-radius: 50%;
+                                overflow: hidden;
+                                margin: 0 1rem 0 0;
+                                
+                                img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        object-position: center;
+                                }
+                        }
+
+                        .profile-info {
+                                color: $black-color;
+
+                                p {
+                                        color: rgba($black-color, 0.8);
+                                        font-size: 0.8rem;
+                                }
+                        }
+                }
+
+                .post-container {
+                        .img-container {
+                                width: 100%;
+                                aspect-ratio: 16/12;
+                                overflow: hidden;
+                                border-radius: 20px;
+
+                                img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        object-position: center;
+                                }
+                        }
+
+                        .post-body-container {
+                                margin: 2rem 0;
+                        }
+                }
+        }
+
+        .side-section {
+                width: 30%;
+                // background-color: #17c666;
+
+                .user-info-container {
+                        margin-bottom: 2rem;
+
+                        .heading {
+                                font-size: 0.9rem;
+                                font-weight: 500;
+                                text-transform: uppercase;
+                                margin: 1rem 0 0.2rem 0;
+                        }
+
+                        hr {
+                                margin: 0 0 0.6rem 0;
+                                border: 0.3px solid #d8d8d8;
+                        }
+
+                        .user-info {
+                                display: flex;
+                                justify-content: start;
+                                align-items: center;
+                                margin: 0.5rem 0;
+
+                                .img-container {
+                                        width: 45px;
+                                        height: 45px;
+                                        border-radius: 50%;
+                                        overflow: hidden;
+                                        margin: 0 1rem 0 0;
+                                        
+                                        img {
+                                                width: 100%;
+                                                height: 100%;
+                                                object-fit: cover;
+                                                object-position: center;
+                                        }
+                                }
+
+                                .profile-info {
+                                        color: $black-color;
+        
+                                        p {
+                                                color: rgba($black-color, 0.8);
+                                                font-size: 0.8rem;
+                                        }
+                                }
+                        }
+
+                        .user-bio {
+                                p {
+                                        color: rgba($black-color, 0.8);
+                                        font-size: 0.9rem;
+                                        margin: 0.4rem 0;
+                                }
+                        }
+                }
+
+                .similar-category-container {
+                        .heading {
+                                font-size: 0.9rem;
+                                font-weight: 500;
+                                text-transform: uppercase;
+                                margin: 1rem 0 0.2rem 0;
+                        }
+
+                        hr {
+                                margin: 0 0 0.6rem 0;
+                                border: 0.3px solid #d8d8d8;
+                        }
+
+                        .similar-category {
+                                .items {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: flex-start;
+                                        margin: 1rem 0;
+                                        cursor: pointer;
+
+                                        .img-container {
+                                                width: 100px;
+                                                aspect-ratio: 16/11;
+                                                border-radius: 10px;
+                                                overflow: hidden;
+                                                margin: 0 1rem 0 0;
+                                                
+                                                img {
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        object-fit: cover;
+                                                        object-position: center;
+                                                        @include scaleAnim;
+                                                }
+                                        }
+
+                                        h4 {
+                                                font-size: 0.9rem;
+                                                width: calc(98% - 100px);
+                                        }
+                                }
+                        }
+                }
+        }
+
+        .comment-section {
+                .heading {
+                        margin: 4rem 0 1rem 0;
+                }
+
+                .comment-container {
+
+                        .comments {
+                                margin: 1rem 0;
+                        }
+
+                        .profile-container {
+                                display: flex;
+                                justify-content: start;
+                                align-items: center;
+                                margin: 0.5rem 0;
+
+                                .img-container {
+                                        width: 45px;
+                                        height: 45px;
+                                        border-radius: 50%;
+                                        overflow: hidden;
+                                        margin: 0 1rem 0 0;
+                                        
+                                        img {
+                                                width: 100%;
+                                                height: 100%;
+                                                object-fit: cover;
+                                                object-position: center;
+                                        }
+                                }
+
+                                .profile-info {
+                                        color: $black-color;
+        
+                                        p {
+                                                color: rgba($black-color, 0.8);
+                                                font-size: 0.8rem;
+                                        }
+                                }
+                        }
+
+                        .comment {
+                                p {
+                                        margin: 0.5rem 0;
+                                }
+                        }
+                }
+        }
+
+}
+
+.category-section {
+        .container {
+                margin: 2rem 0;
+        }
+}
+
+.category-post-section {
+        .category-header {
+                margin: 2rem 0;
+
+                .container {
+                        width: 100%;
+                        max-width: 700px;
+                        margin: 0 auto;
+                        text-align: center;
+
+                        .img-container {
+                                width: 100px;
+                                height: 100px;
+                                border-radius: 50%;
+                                overflow: hidden;
+                                margin: 0 auto;
+                                border: 8px solid $accent-color;
+
+                                img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        object-position: center;
+                                }
+                        }
+
+                        .text-content {
+                                margin: 1rem 0;
+
+                                h2 {
+                                        text-transform: capitalize;
+                                }
+
+                                p {
+                                        margin: 1rem 0;
+                                        line-height: 20px;
+                                        color: rgba($black-color, 0.8);
+                                }
+                        }
+                }
+        }
+
+        .container {
+                margin: 4rem 0;
+        }
+}
+
+.authors-section {
+        .authors-header {
+                margin: 2rem 0;
+
+                .container {
+                        width: 100%;
+                        max-width: 700px;
+                        margin: 0 auto;
+                        text-align: center;
+
+                        .img-container {
+                                width: 100px;
+                                height: 100px;
+                                border-radius: 50%;
+                                overflow: hidden;
+                                margin: 0 auto;
+                                border: 8px solid $accent-color;
+
+                                img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        object-position: center;
+                                }
+                        }
+
+                        .text-content {
+                                margin: 1rem 0;
+
+                                h2 {
+                                        text-transform: capitalize;
+                                }
+
+                                p {
+                                        margin: 1rem 0;
+                                        line-height: 20px;
+                                        color: rgba($black-color, 0.8);
+                                }
+                        }
+                }
+        }
+
+        .authors-account-section {
+                margin: 4rem 0;
+                .container {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                        gap: 2rem;
+
+                        .item {
+
+                                .img-container {
+                                        width: 100%;
+                                        border-radius: 20px;
+                                        overflow: hidden;
+                                        aspect-ratio: 16/13;
+                                        cursor: pointer;
+
+                                        img {
+                                                width: 100%;
+                                                height: 100%;
+                                                object-fit: cover;
+                                                object-position: center;
+                                        @include scaleAnim;
+                                        }
+                                }
+
+                                .text-content {
+                                        margin: 0.7rem 0;
+                                        cursor: pointer;
+
+                                        h2 {
+                                                font-size: 1.3rem;
+                                                font-weight: 600;
+                                        }
+
+                                        p {
+                                                font-size: 0.9rem;
+                                                color: rgba($black-color, 0.8);
+                                        }
+                                }
+                        }
+                }
+        }
+}

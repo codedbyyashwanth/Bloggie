@@ -23,7 +23,7 @@ const Footer = () => {
                                         <li><a href="">Categories</a></li>
                                         <li><a href="">Posts</a></li>
                                         <li><a href="">Authors</a></li>
-                                        <li><a href="">Contact</a></li>
+                                        {/* <li><a href="">Contact</a></li> */}
                                 </ul>
                         </div>
                         <div className="content">
@@ -32,7 +32,7 @@ const Footer = () => {
                                         <li><a href="">Instagram</a></li>
                                         <li><a href="">Facebook</a></li>
                                         <li><a href="">Twitter</a></li>
-                                        <li><a href="">Whatsapp</a></li>
+                                        {/* <li><a href="">Whatsapp</a></li> */}
                                         <li><a href="">Discord</a></li>
                                 </ul>
                         </div>
