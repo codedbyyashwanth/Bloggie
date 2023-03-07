@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const Author = () => {
-        const { author } = useParams();
+        const { id } = useParams();
+        const location = useLocation();
+
         return (
                 <>
                         <header>
@@ -13,11 +15,11 @@ const Author = () => {
                                 <div className="authors-header">
                                         <div className="container">
                                                 <div className="img-container">
-                                                        <img src="https://reiro.fueko.net/content/images/size/w300/2022/10/photo-1655721529468-d0d81b2dc489.jpeg" alt="" />
+                                                        <img src={location.state.profile} alt="" />
                                                 </div>
                                                 <div className="text-content">
-                                                        <h2>{author}</h2>
-                                                        <p style={{ fontWeight : "600", margin : "0", fontSize : "0.9rem" }}>Software Developer - 86 Posts</p>
+                                                        <h2>{location.state.name}</h2>
+                                                        <p style={{ fontWeight : "600", margin : "0", fontSize : "0.9rem" }}>{location.state.tag} - 86 Posts</p>
                                                         <p>
                                                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere voluptates tempore harum, corrupti blanditiis quibusdam tenetur alias, suscipit est voluptatibus in nostrum perspiciatis atque distinctio eum nesciunt adipisci laborum iste!
                                                         </p>

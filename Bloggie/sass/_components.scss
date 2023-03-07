@@ -608,12 +608,13 @@ header {
 
                                 .title {
                                         margin-bottom: 1rem;
-                                        line-height: 15px;
+                                        line-height: 35px;
 
                                         a {
                                                 text-decoration: none;
                                                 color: $black-color;
                                                 font-weight: 600;
+                                                line-height: 15px;
                                                 font-size: clamp(1rem, 2vw, 2rem);
 
                                                 &:hover {

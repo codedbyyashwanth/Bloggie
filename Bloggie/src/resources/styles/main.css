@@ -529,12 +529,13 @@ header .mobile-nav-section .mobile-navbar .nav-container a {
 }
 .popular-post-section .card-container .card .text-container .title {
   margin-bottom: 1rem;
-  line-height: 15px;
+  line-height: 35px;
 }
 .popular-post-section .card-container .card .text-container .title a {
   text-decoration: none;
   color: #232323;
   font-weight: 600;
+  line-height: 15px;
   font-size: clamp(1rem, 2vw, 2rem);
 }
 .popular-post-section .card-container .card .text-container .title a:hover {
