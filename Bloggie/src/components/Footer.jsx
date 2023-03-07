@@ -1,4 +1,5 @@
 import Logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
         return (
@@ -19,10 +20,10 @@ const Footer = () => {
                         <div className="content">
                                 <h4>Sitemap</h4>
                                 <ul>
-                                        <li><a href="">Home</a></li>
-                                        <li><a href="">Categories</a></li>
-                                        <li><a href="">Posts</a></li>
-                                        <li><a href="">Authors</a></li>
+                                        <li><Link to="/" >Home</Link></li>
+                                        <li><Link to="/categories" >Categories</Link></li>
+                                        <li><Link to="/posts" >Posts</Link></li>
+                                        <li><Link to="/authors" >Authors</Link></li>
                                         {/* <li><a href="">Contact</a></li> */}
                                 </ul>
                         </div>

@@ -5,6 +5,7 @@ import LatestPost from "../components/home/LatestPost";
 import Card from "../components/home/Card";
 import { GraphQLClient, gql } from "graphql-request";
 import { useQuery } from "react-query";
+import Loading from "../components/Loading";
 
 const API = "https://api-ap-south-1.hygraph.com/v2/clduo82jb0d1f01rt58iceeod/master";
 
@@ -32,7 +33,7 @@ const Category = () => {
         const { data, status } = useQuery("post-data", fetchData);
 
         if (status == "loading")
-                return <h1>Loading</h1>
+                return <Loading />
 
         if (status == "error")
                 return <h1>Error</h1>

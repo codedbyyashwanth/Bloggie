@@ -6,12 +6,6 @@ const CardSection = () => {
                         {/* <h1 className="section-title">Popular Category</h1> */}
                         <div className="container">
                                 <div className="img-container">
-                                        <Link to="/categories/Programming">
-                                        <img src="https://reiro.fueko.net/content/images/size/w300/2022/10/photo-1655721529468-d0d81b2dc489.jpeg" alt="" />
-                                        <h4>Programming</h4>
-                                        </Link>
-                                </div>
-                                <div className="img-container">
                                         <Link to="/categories/Travel">
                                         <img src="https://reiro.fueko.net/content/images/size/w300/2022/10/photo-1557704595-ecd34dc3a4b9.jpeg" alt="" />
                                         <h4>Travel</h4>
@@ -33,6 +27,12 @@ const CardSection = () => {
                                         <Link to="/categories/Fashion">
                                         <img src="https://reiro.fueko.net/content/images/size/w300/2022/10/photo-1631679706909-1844bbd07221.jpeg" alt="" />
                                         <h4>Fashion</h4>
+                                        </Link>
+                                </div>
+                                <div className="img-container">
+                                        <Link to="/categories/Programming">
+                                        <img src="https://reiro.fueko.net/content/images/size/w300/2022/10/photo-1655721529468-d0d81b2dc489.jpeg" alt="" />
+                                        <h4>Programming</h4>
                                         </Link>
                                 </div>
                                 <div className="img-container">

@@ -7,6 +7,7 @@ import InterestedCardSection from "../components/home/InterestedCardSection";
 import RecentlyVisited from "../components/home/RecentlyVisited";
 import AuthorSection from "../components/home/AuthorSection";
 import Footer from "../components/Footer";
+import Loading from "../components/Loading";
 
 import { gql, GraphQLClient } from "graphql-request";
 import { useQuery } from "react-query";
@@ -15,7 +16,7 @@ const GraphCMS = new GraphQLClient(API_KEY);
 
 const GQLData = gql`
 {
-        featured: posts(first: 3, where: {viewCount_gt: 500}) {
+        featured: posts(last: 3, where: {featured: true}) {
                 title
                 imageurl
                 author {
@@ -25,7 +26,17 @@ const GQLData = gql`
                 }
         }
 
-        latest: posts(last: 6, where: {viewCount_gt: 500}) {
+        others: posts(first:3, where: {viewCount_lt: 500}) {
+                title
+                imageurl
+                author {
+                  tag
+                  name
+                  profile
+                }
+        }
+
+        latest: posts(last: 6, where: {viewCount_gt: 500, featured: false}) {
                 title
                 imageurl
                 author {
@@ -35,7 +46,15 @@ const GQLData = gql`
                 }
         }
 
-        popular: posts(first: 3, where: {viewCount_gt: 500}) {
+        authors: authors(first: 8) {
+                name
+                id
+                profile
+                rating
+                tag
+              }
+
+        popular: posts(first: 3, where: {viewCount_gt: 500, featured: false}) {
                 title
                 imageurl
                 author {
@@ -50,11 +69,13 @@ const GQLData = gql`
 const Home = () => {
 
         const fetchData = async () => {
-                const { featured, latest, popular } = await GraphCMS.request(GQLData);
+                const { featured, latest, popular, others, authors } = await GraphCMS.request(GQLData);
                 let data = {
                         featured,
                         latest,
-                        popular
+                        popular,
+                        others,
+                        authors
                 }
                 return data;
         }
@@ -62,20 +83,20 @@ const Home = () => {
         const { data, status } = useQuery("featured-data", fetchData);
 
         if (status == "loading")
-                return <h1>Loading</h1>
+                return <Loading />
 
         return (
                 <>
                         <header>
                                 <Navbar />
-                                <HeroSection  />
+                                <HeroSection data={data.featured}  />
                         </header>
                         <main>
                                 <CardSection />
                                 <LatestPost data={data.latest} />
                                 <PopularPost data={data.popular} />
-                                <InterestedCardSection />
-                                <AuthorSection />
+                                <InterestedCardSection data={data.others} />
+                                <AuthorSection data={data.authors} />
                                 <RecentlyVisited />
                         </main>
                         <Footer />

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { GraphQLClient, gql } from "graphql-request";
 import { useQuery } from "react-query";
 import Card from "./Card";
+import Loading from "../Loading";
 
 const API = "https://api-ap-south-1.hygraph.com/v2/clduo82jb0d1f01rt58iceeod/master";
 
@@ -34,7 +35,7 @@ const CategoryPost = () => {
         const { data, status } = useQuery(`${id}-data`, fetchData);
 
         if (status == "loading")
-                return <h1>Loading</h1>
+                return <Loading />
 
         if (status == "error")
                 return <h1>Error</h1>

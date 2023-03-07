@@ -26,7 +26,7 @@ const Authors = () => {
         }
 
         const { data, status } = useQuery("author-data", fetchData);
-        console.log(data)
+
 
         if (status == "loading")
                 return <h1>Loading...</h1>
