@@ -1,0 +1,24 @@
+Create GrapghQL Dataschema
+-- Blog Post
+        -- id
+        -- Title
+        -- Featured Image
+        -- Tags ---
+        -- Category ---
+        -- Body/HTML Content
+        -- slug
+        -- Author Connection
+        -- Posted Timings
+-- Author
+        -- id
+        -- Name
+        -- Profile URL
+        -- Post Connection
+
+Concepts to Learn
+-- React Query
+-- React Router v6
+-- GrapghQL in React
+-- Axios Full Operation Revision
+-- React Lazy
+
