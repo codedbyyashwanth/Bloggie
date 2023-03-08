@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const HeroSection = ({ data }) => {
 
@@ -6,7 +6,9 @@ const HeroSection = ({ data }) => {
                 <section className="hero-section">
                         <div className="container">
                                 <div className="card">
+                                        <Link to={`/posts/${data[2].slug}`}>
                                         <img src={data[2].imageurl} alt="" />
+                                        </Link>
                                         <div className="overlay"></div>
                                         <div className="text-container">
                                                 <h1 className="title">
@@ -24,7 +26,9 @@ const HeroSection = ({ data }) => {
                                         </div>
                                 </div>
                                 <div className="card">
+                                <Link to={`/posts/${data[1].slug}`}>
                                         <img src={data[1].imageurl} alt="" />
+                                        </Link>
                                         <div className="overlay"></div>
                                         <div className="text-container">
                                                 {/* <h1 className="title">
@@ -42,7 +46,9 @@ const HeroSection = ({ data }) => {
                                         </div>
                                 </div>
                                 <div className="card">
+                                <Link to={`/posts/${data[0].slug}`}>
                                         <img src={data[0].imageurl} alt="" />
+                                        </Link>
                                         <div className="overlay"></div>
                                         <div className="text-container">
                                                 {/* <h1 className="title">

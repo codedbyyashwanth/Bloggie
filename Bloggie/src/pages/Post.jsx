@@ -13,6 +13,7 @@ const GQLData = gql`
                 posts(first:100) {
                         title
                         imageurl
+                        slug
                         author {
                                 tag
                                 name

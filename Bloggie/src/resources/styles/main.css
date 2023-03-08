@@ -947,7 +947,6 @@ footer .copy-right-section h4 {
 }
 .search-section .container .search-data-container .card-container .item {
   display: flex;
-  justify-content: start;
   align-items: center;
   margin: 1rem 0;
   cursor: pointer;
@@ -966,6 +965,9 @@ footer .copy-right-section h4 {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+.search-section .container .search-data-container .card-container .item .text-content {
+  width: 100%;
 }
 .search-section .container .search-data-container .card-container .item .text-content h3 {
   font-weight: 600;

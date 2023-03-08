@@ -1072,7 +1072,6 @@ footer {
                         .card-container {
                                 .item {
                                         display: flex;
-                                        justify-content: start;
                                         align-items: center;
                                         margin: 1rem 0;
                                         cursor: pointer;
@@ -1093,6 +1092,7 @@ footer {
                                         }
 
                                         .text-content {
+                                                width: 100%;
                                                 h3 {
                                                         font-weight: 600;
                                                 }

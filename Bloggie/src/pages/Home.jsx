@@ -19,30 +19,46 @@ const GQLData = gql`
         featured: posts(last: 3, where: {featured: true}) {
                 title
                 imageurl
+                slug
                 author {
                         tag
                         name
                         profile
+                        id
+                }
+        }
+
+        posts(first:100) {
+                title
+                slug
+                imageurl
+                author {
+                        name
+                        id
                 }
         }
 
         others: posts(first:3, where: {viewCount_lt: 500}) {
                 title
                 imageurl
+                slug
                 author {
                   tag
                   name
                   profile
+                  id
                 }
         }
 
         latest: posts(last: 6, where: {viewCount_gt: 500, featured: false}) {
                 title
                 imageurl
+                slug
                 author {
                         tag
                         name
                         profile
+                        id
                 }
         }
 
@@ -57,10 +73,12 @@ const GQLData = gql`
         popular: posts(first: 3, where: {viewCount_gt: 500, featured: false}) {
                 title
                 imageurl
+                slug
                 author {
                         tag
                         name
                         profile
+                        id
                 }
         }
 
@@ -71,10 +89,12 @@ const GQLData = gql`
               ) {
                 imageurl
                 title
+                slug
                 author {
                         tag
                         name
                         profile
+                        id
                 }
         }
 }
@@ -83,14 +103,15 @@ const GQLData = gql`
 const Home = () => {
 
         const fetchData = async () => {
-                const { featured, latest, popular, others, authors, published } = await GraphCMS.request(GQLData);
+                const { featured, latest, popular, others, authors, published, posts } = await GraphCMS.request(GQLData);
                 let data = {
                         featured,
                         latest,
                         popular,
                         others,
                         authors,
-                        published
+                        published,
+                        posts
                 }
                 return data;
         }

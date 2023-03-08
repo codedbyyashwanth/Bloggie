@@ -18,10 +18,12 @@ const CategoryPost = () => {
                         category: posts(where: {category: \"${id}\" }) {
                                 title
                                 imageurl
+                                slug
                                 author {
                                 tag
                                 name
                                 profile
+                                id
                                 }
                         }
                 }

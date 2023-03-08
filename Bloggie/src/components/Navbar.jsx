@@ -1,16 +1,50 @@
 import { useState } from "react";
 import { BiSearchAlt, BiMenu, BiX } from "react-icons/bi"
 import logo from "../assets/logo.png"
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom";
+import Loading from "./Loading";
+import { gql, GraphQLClient } from "graphql-request";
+import { useQuery } from "react-query";
+const API_KEY = "https://api-ap-south-1.hygraph.com/v2/clduo82jb0d1f01rt58iceeod/master";
+const GraphCMS = new GraphQLClient(API_KEY);
+
 
 const Navbar = () => {
         const [navOpen, setNavOpen] = useState(false);
         const [searchData, setSearchData] = useState("");
         const [searchSec, setSearchSec] = useState(false);
 
+        const GQLData = gql`
+                {
+                        posts(first: 5, where: {title_contains: \"${searchData}\"}) {
+                                title
+                                slug
+                                imageurl
+                                author {
+                                        name
+                                        id
+                                }
+                        }
+                }
+        `;
+
+        const fetchData = async () => {
+                const {posts} = await GraphCMS.request(GQLData);
+                return posts;
+        }
+
+        const { data, status } = useQuery("posts-search-data", fetchData);
+
         const showSearchSec = () => {
                 setSearchSec(!searchSec);
         }
+        
+        if (status == "loading")
+                return <Loading />
+
+        if (status == "error")
+                return <h1>Error</h1>
+
         
         return (
                 <>
@@ -23,69 +57,21 @@ const Navbar = () => {
                                         </div>
                                         <div className="search-data-container">
                                                 <div className="card-container">
-                                                        <div className="item">
-                                                                <div className="img-container">
-                                                                        <img src="https://reiro-dark.fueko.net/content/images/2022/10/photo-1434494878577-86c23bcb06b9.jpeg" alt="" />
-                                                                </div>
-                                                                <div className="text-content">
-                                                                        <h3>A healthy outside starts from the inside</h3>
-                                                                        <p>Written by Aman Dattarwal</p>
-                                                                </div>
-                                                        </div>
-                                                        <div className="item">
-                                                                <div className="img-container">
-                                                                        <img src="https://reiro-dark.fueko.net/content/images/2022/10/photo-1434494878577-86c23bcb06b9.jpeg" alt="" />
-                                                                </div>
-                                                                <div className="text-content">
-                                                                        <h3>A healthy outside starts from the inside</h3>
-                                                                        <p>Written by Aman Dattarwal</p>
-                                                                </div>
-                                                        </div>
-                                                        <div className="item">
-                                                                <div className="img-container">
-                                                                        <img src="https://reiro-dark.fueko.net/content/images/2022/10/photo-1434494878577-86c23bcb06b9.jpeg" alt="" />
-                                                                </div>
-                                                                <div className="text-content">
-                                                                        <h3>A healthy outside starts from the inside</h3>
-                                                                        <p>Written by Aman Dattarwal</p>
-                                                                </div>
-                                                        </div>
-                                                        <div className="item">
-                                                                <div className="img-container">
-                                                                        <img src="https://reiro-dark.fueko.net/content/images/2022/10/photo-1434494878577-86c23bcb06b9.jpeg" alt="" />
-                                                                </div>
-                                                                <div className="text-content">
-                                                                        <h3>A healthy outside starts from the inside</h3>
-                                                                        <p>Written by Aman Dattarwal</p>
-                                                                </div>
-                                                        </div>
-                                                        <div className="item">
-                                                                <div className="img-container">
-                                                                        <img src="https://reiro-dark.fueko.net/content/images/2022/10/photo-1434494878577-86c23bcb06b9.jpeg" alt="" />
-                                                                </div>
-                                                                <div className="text-content">
-                                                                        <h3>A healthy outside starts from the inside</h3>
-                                                                        <p>Written by Aman Dattarwal</p>
-                                                                </div>
-                                                        </div>
-                                                        <div className="item">
-                                                                <div className="img-container">
-                                                                        <img src="https://reiro-dark.fueko.net/content/images/2022/10/photo-1434494878577-86c23bcb06b9.jpeg" alt="" />
-                                                                </div>
-                                                                <div className="text-content">
-                                                                        <h3>A healthy outside starts from the inside</h3>
-                                                                        <p>Written by Aman Dattarwal</p>
-                                                                </div>
-                                                        </div>
-                                                        <div className="item">
-                                                                <div className="img-container">
-                                                                        <img src="https://reiro-dark.fueko.net/content/images/2022/10/photo-1434494878577-86c23bcb06b9.jpeg" alt="" />
-                                                                </div>
-                                                                <div className="text-content">
-                                                                        <h3>A healthy outside starts from the inside</h3>
-                                                                        <p>Written by Aman Dattarwal</p>
-                                                                </div>
-                                                        </div>
+                                                        {
+                                                                data.filter(values => values.title.toLowerCase().includes(searchData.toLowerCase()) && searchData.length > 3).map((items, count) => (
+                                                                        <div className="item" key={count}>
+                                                                                <Link to={`/posts/${items.slug}`}>
+                                                                                        <div className="img-container">
+                                                                                                <img src={items.imageurl} alt="" />
+                                                                                        </div> 
+                                                                                </Link>
+                                                                                <div className="text-content">
+                                                                                        <h3><Link to={`/posts/${items.slug}`}>{items.title}</Link></h3>
+                                                                                        <p>Written by <Link to={`/authors/${items.author.id}`}>{items.author.name}</Link></p>
+                                                                                </div>
+                                                                        </div>
+                                                                ))
+                                                        }
                                                 </div>
                                         </div>
                                 </div>

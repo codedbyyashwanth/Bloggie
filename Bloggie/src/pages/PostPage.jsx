@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import { GraphQLClient, gql } from "graphql-request";
 import { useQuery } from "react-query";
 import Loading from "../components/Loading";
+import RecentlyVisited from "../components/home/RecentlyVisited";
+import { useState } from "react";
 
 const API = "https://api-ap-south-1.hygraph.com/v2/clduo82jb0d1f01rt58iceeod/master";
 
@@ -33,10 +35,11 @@ const PostPage = () => {
                                   profile
                                   name
                                   tag
+                                  id
                                 }
                         }
                 }
-        `
+        `;
 
         const fetchData = async () => {
                 const {post} = await GraphQLCMS.request(GrpahGQL);
@@ -45,6 +48,7 @@ const PostPage = () => {
 
         const { data, status } = useQuery("post-ind-data", fetchData);
 
+        
 
         if (status == "loading")
                 return <Loading />
