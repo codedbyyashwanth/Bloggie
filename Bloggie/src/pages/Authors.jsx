@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import { GraphQLClient, gql } from "graphql-request";
 import { useQuery } from "react-query";
+import Loading from "../components/Loading";
 
 const API = "https://api-ap-south-1.hygraph.com/v2/clduo82jb0d1f01rt58iceeod/master";
 const GraphQLCMS = new GraphQLClient(API);
@@ -29,7 +30,7 @@ const Authors = () => {
 
 
         if (status == "loading")
-                return <h1>Loading...</h1>
+                return <Loading />
 
         if (status == "error")
                 return <h1>Error</h1>
@@ -43,7 +44,7 @@ const Authors = () => {
                                 <div className="authors-header">
                                         <div className="container">
                                                 <div className="img-container">
-                                                        <img src="https://reiro.fueko.net/content/images/size/w300/2022/10/photo-1655721529468-d0d81b2dc489.jpeg" alt="" />
+                                                        <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80" alt="" />
                                                 </div>
                                                 <div className="text-content">
                                                         <h2>Authors</h2>

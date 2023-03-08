@@ -63,19 +63,34 @@ const GQLData = gql`
                         profile
                 }
         }
+
+        published: posts(
+                first: 3
+                orderBy: publishedAt_DESC
+                where: {featured: false, viewCount_lt: 500}
+              ) {
+                imageurl
+                title
+                author {
+                        tag
+                        name
+                        profile
+                }
+        }
 }
 `;
 
 const Home = () => {
 
         const fetchData = async () => {
-                const { featured, latest, popular, others, authors } = await GraphCMS.request(GQLData);
+                const { featured, latest, popular, others, authors, published } = await GraphCMS.request(GQLData);
                 let data = {
                         featured,
                         latest,
                         popular,
                         others,
-                        authors
+                        authors,
+                        published
                 }
                 return data;
         }
@@ -97,7 +112,7 @@ const Home = () => {
                                 <PopularPost data={data.popular} />
                                 <InterestedCardSection data={data.others} />
                                 <AuthorSection data={data.authors} />
-                                <RecentlyVisited />
+                                <RecentlyVisited data={data.published} />
                         </main>
                         <Footer />
                 </>

@@ -530,7 +530,7 @@ header .mobile-nav-section .mobile-navbar .nav-container a {
 .popular-post-section .card-container .card .img-container {
   width: 100%;
   max-width: 400px;
-  aspect-ratio: 4/2.8;
+  aspect-ratio: 16/11;
   border-radius: 20px;
   overflow: hidden;
   margin-right: 1rem;
@@ -538,7 +538,7 @@ header .mobile-nav-section .mobile-navbar .nav-container a {
 @media (max-width: 500px) {
   .popular-post-section .card-container .card .img-container {
     margin-right: 0;
-    width: 50%;
+    width: 80%;
   }
 }
 .popular-post-section .card-container .card .img-container img {
@@ -559,6 +559,11 @@ header .mobile-nav-section .mobile-navbar .nav-container a {
 .popular-post-section .card-container .card .text-container .title {
   margin-bottom: 1rem;
   line-height: 35px;
+}
+@media (max-width: 700px) {
+  .popular-post-section .card-container .card .text-container .title {
+    line-height: 15px;
+  }
 }
 .popular-post-section .card-container .card .text-container .title a {
   text-decoration: none;
@@ -976,6 +981,107 @@ footer .copy-right-section h4 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.post-detail-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 3rem auto;
+}
+.post-detail-section .text-content .title {
+  font-weight: 500;
+  font-size: clamp(1.4rem, 3vw, 3rem);
+}
+.post-detail-section .text-content .title-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.post-detail-section .text-content .title-info .tag-container {
+  margin: 1rem 0;
+  margin-right: 1rem;
+}
+.post-detail-section .text-content .title-info .tag-container span {
+  cursor: pointer;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  margin-right: 0.4rem;
+  font-size: 0.75rem;
+  transition: ease 0.4s;
+  background-color: rgba(154, 154, 154, 0.3);
+}
+.post-detail-section .text-content .title-info .tag-container span:hover {
+  background-color: rgba(154, 154, 154, 0.5);
+}
+.post-detail-section .text-content .title-info .published {
+  font-size: 0.8rem;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.8);
+}
+.post-detail-section .img-container {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 1rem 0;
+  aspect-ratio: 4/2.8;
+}
+.post-detail-section .img-container:hover img {
+  transform: scale(1.03);
+}
+.post-detail-section .img-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transition: ease 0.4s;
+}
+.post-detail-section .body-container {
+  margin: 1rem 0;
+}
+.post-detail-section .profile-section {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.post-detail-section .profile-section .img-container {
+  min-width: 55px;
+  max-width: 55px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 1rem 0 0;
+}
+.post-detail-section .profile-section .img-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.post-detail-section .profile-section .text-content {
+  color: #232323;
+}
+.post-detail-section .profile-section .text-content h3 {
+  font-weight: 600;
+}
+.post-detail-section .profile-section .text-content p {
+  color: rgba(35, 35, 35, 0.8);
+  font-size: 0.9rem;
+}
+.post-detail-section .published-by {
+  margin: 2rem 0;
+}
+.post-detail-section .published-by .heading {
+  margin: 1rem 0;
+}
+.post-detail-section .published-by .heading h3 {
+  font-weight: 600;
 }
 
 .section-title {

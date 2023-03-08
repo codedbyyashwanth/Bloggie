@@ -12,7 +12,7 @@ const API = "https://api-ap-south-1.hygraph.com/v2/clduo82jb0d1f01rt58iceeod/mas
 const GraphQLCMS = new GraphQLClient(API);
 const GQLData = gql`
         {
-                posts {
+                posts(first:100) {
                         title
                         imageurl
                         author {
