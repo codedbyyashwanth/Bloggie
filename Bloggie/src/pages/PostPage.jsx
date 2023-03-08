@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import moment from 'moment';
 import {BiCalendar} from "react-icons/bi";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { GraphQLClient, gql } from "graphql-request";
 import { useQuery } from "react-query";
 import Loading from "../components/Loading";
@@ -91,12 +91,12 @@ const PostPage = () => {
                                                 </div>
                                                 <div className="profile-section">
                                                         <div className="img-container">
-                                                                <img src={data.author.profile} alt="" />
+                                                        <Link to={`/authors/${data.author.id}`}><img src={data.author.profile} alt="" /></Link>
                                                         </div>
-                                                        <div className="text-content">
+                                                        <Link to={`/authors/${data.author.id}`}><div className="text-content">
                                                                 <h3 className="profile-name">{data.author.name}</h3>
                                                                 <p className="bio">{data.author.tag}</p>
-                                                        </div>
+                                                        </div></Link>
                                                 </div>
                                         </div>
                                 </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BiSearchAlt, BiMenu, BiX } from "react-icons/bi"
 import logo from "../assets/logo.png"
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import { gql, GraphQLClient } from "graphql-request";
 import { useQuery } from "react-query";
@@ -13,10 +13,11 @@ const Navbar = () => {
         const [navOpen, setNavOpen] = useState(false);
         const [searchData, setSearchData] = useState("");
         const [searchSec, setSearchSec] = useState(false);
+        const navigate = useNavigate();
 
         const GQLData = gql`
                 {
-                        posts(first: 5, where: {title_contains: \"${searchData}\"}) {
+                        posts(first: 10, where: {title_contains: \"${searchData}\"}) {
                                 title
                                 slug
                                 imageurl
@@ -33,7 +34,7 @@ const Navbar = () => {
                 return posts;
         }
 
-        const { data, status } = useQuery("posts-search-data", fetchData);
+        const { data, status } = useQuery("posts-search-data", fetchData, {keepPreviousData: false});
 
         const showSearchSec = () => {
                 setSearchSec(!searchSec);
@@ -60,13 +61,13 @@ const Navbar = () => {
                                                         {
                                                                 data.filter(values => values.title.toLowerCase().includes(searchData.toLowerCase()) && searchData.length > 3).map((items, count) => (
                                                                         <div className="item" key={count}>
-                                                                                <Link to={`/posts/${items.slug}`}>
+                                                                                <a href={`/posts/${items.slug}`}>
                                                                                         <div className="img-container">
                                                                                                 <img src={items.imageurl} alt="" />
                                                                                         </div> 
-                                                                                </Link>
+                                                                                </a>
                                                                                 <div className="text-content">
-                                                                                        <h3><Link to={`/posts/${items.slug}`}>{items.title}</Link></h3>
+                                                                                        <h3><a href={`/posts/${items.slug}`}>{items.title}</a></h3>
                                                                                         <p>Written by <Link to={`/authors/${items.author.id}`}>{items.author.name}</Link></p>
                                                                                 </div>
                                                                         </div>

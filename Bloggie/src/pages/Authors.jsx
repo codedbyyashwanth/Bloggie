@@ -50,8 +50,8 @@ const Authors = () => {
                                                 <div className="text-content">
                                                         <h2>Authors</h2>
                                                         <p>
-                                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere voluptates tempore harum, corrupti blanditiis quibusdam tenetur alias, suscipit est voluptatibus in nostrum perspiciatis atque distinctio eum nesciunt adipisci laborum iste!
-                                                        </p>
+                                                        A story is a letter that the author writes to himself, to tell himself things that he would be unable to discover otherwise. ~Carlos Ruiz Zafón        
+                                                         </p>
                                                 </div>
                                         </div>
                                 </div>

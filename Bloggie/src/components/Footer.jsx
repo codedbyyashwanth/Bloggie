@@ -11,9 +11,7 @@ const Footer = () => {
                                 </div>
                                 <div className="text-content">
                                         <p>
-                                        Nullam auctor nisi non tortor porta, id dapibus
-                                        lectus rhoncus. Vivamus lobortis posuere
-                                        enim finibus sodales. 
+                                        Bloggie is a simple blogging website where people can share their articles of various categories around the world through our platform.
                                         </p>
                                 </div>
                         </div>

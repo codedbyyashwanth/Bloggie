@@ -1,4 +1,5 @@
 import { BiStar } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 const AuthorSection = ({data}) => {
         return (
@@ -12,12 +13,12 @@ const AuthorSection = ({data}) => {
                                                 <div className="card" key={count}>
                                                         <div className="profile-section">
                                                                 <div className="img-container">
-                                                                        <img src={items.profile} alt="" />
+                                                                <Link to={`/authors/${items.id}`}><img src={items.profile} alt="" /></Link>
                                                                 </div>
-                                                                <div className="text-content">
+                                                                <Link to={`/authors/${items.id}`}><div className="text-content">
                                                                         <h4 className="profile-name">{items.name}</h4>
                                                                         <p className="bio">{items.tag}</p>
-                                                                </div>
+                                                                </div></Link>
                                                         </div>
                                                         <div className="rating">
                                                                 <h4>{items.rating}</h4>

@@ -7,37 +7,37 @@ const CardSection = () => {
                         <div className="container">
                                 <div className="img-container">
                                         <Link to="/categories/Travel">
-                                        <img src="https://reiro.fueko.net/content/images/size/w300/2022/10/photo-1557704595-ecd34dc3a4b9.jpeg" alt="" />
+                                        <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="" />
                                         <h4>Travel</h4>
                                         </Link>
                                 </div>
                                 <div className="img-container">
                                         <Link to="/categories/Food">
-                                        <img src="https://reiro.fueko.net/content/images/size/w300/2022/10/photo-1611486212557-88be5ff6f941.jpeg" alt="" />
+                                        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" />
                                         <h4>Food</h4>
                                         </Link>
                                 </div>
                                 <div className="img-container">
                                         <Link to="/categories/Fitness">
-                                        <img src="https://reiro.fueko.net/content/images/size/w300/2022/10/photo-1657299170129-858a7f31a794.jpeg" alt="" />
+                                        <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" />
                                         <h4>Fitness</h4>
                                         </Link>
                                 </div>
                                 <div className="img-container">
                                         <Link to="/categories/Fashion">
-                                        <img src="https://reiro.fueko.net/content/images/size/w300/2022/10/photo-1631679706909-1844bbd07221.jpeg" alt="" />
+                                        <img src="https://images.unsplash.com/photo-1585914924626-15adac1e6402?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="" />
                                         <h4>Fashion</h4>
                                         </Link>
                                 </div>
                                 <div className="img-container">
                                         <Link to="/categories/Programming">
-                                        <img src="https://reiro.fueko.net/content/images/size/w300/2022/10/photo-1655721529468-d0d81b2dc489.jpeg" alt="" />
+                                        <img src="https://images.unsplash.com/photo-1597239450996-ea7c2c564412?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzB8fHByb2dyYW1taW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" />
                                         <h4>Programming</h4>
                                         </Link>
                                 </div>
                                 <div className="img-container">
                                         <Link to="/categories/Entertainment">
-                                        <img src="https://reiro.fueko.net/content/images/size/w300/2022/10/vonvix-mYc0ivMNvCI-unsplash.jpg" alt="" />
+                                        <img src="https://images.unsplash.com/photo-1603739903239-8b6e64c3b185?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="" />
                                         <h4>Entertainment</h4>
                                         </Link>
                                 </div>
