@@ -14,6 +14,7 @@ const GraphQL = gql`
                         profile
                         tag
                         id
+                        bio
                       }
         }
 `
@@ -59,7 +60,7 @@ const Authors = () => {
                                                 {
                                                         data.map((values, count) => (
                                                                 <div className="item" key={count}>
-                                                                        <div className="img-container" onClick={ () => navigate(`/authors/${values.id}`, { state: { name : values.name, profile : values.profile, tag : values.tag } }) }>
+                                                                        <div className="img-container" onClick={ () => navigate(`/authors/${values.id}`, { state: { name : values.name, profile : values.profile, tag : values.tag, bio: values.bio } }) }>
                                                                                 <img src={values.profile} alt="" />
                                                                         </div>
                                                                         <div className="text-content">

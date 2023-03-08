@@ -20,11 +20,6 @@ const Author = () => {
                         posts(first:100, where: {author: {id:\"${author}\" }}) {
                                 title
                                 imageurl
-                                author {
-                                        tag
-                                        name
-                                        profile
-                                }
                         }
                 }
         `;
@@ -57,9 +52,7 @@ const Author = () => {
                                                 <div className="text-content">
                                                         <h2>{location.state.name}</h2>
                                                         <p style={{ fontWeight : "600", margin : "0", fontSize : "0.9rem" }}>{location.state.tag} - {data.length} Posts</p>
-                                                        <p>
-                                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere voluptates tempore harum, corrupti blanditiis quibusdam tenetur alias, suscipit est voluptatibus in nostrum perspiciatis atque distinctio eum nesciunt adipisci laborum iste!
-                                                        </p>
+                                                        <p>{location.state.bio}</p>
                                                 </div>
                                         </div>
                                 </div>
@@ -68,7 +61,14 @@ const Author = () => {
                                                 <div className="card-container">
                                                         {
                                                                 data.map((items, count) => (
-                                                                        <Card data={items} key={count} />
+                                                                        <div className="card" key={count}>
+                                                                                <div className="img-container">
+                                                                                        <img src={items.imageurl} alt="" />
+                                                                                </div>
+                                                                                <h3 className="title">
+                                                                                        <a href="">{items.title}</a>
+                                                                                </h3>
+                                                                        </div>
                                                                 ))
                                                         }
                                                 </div>

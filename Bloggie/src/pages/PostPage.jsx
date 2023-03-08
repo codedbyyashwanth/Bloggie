@@ -1,15 +1,61 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Loading from "../components/Loading";
 import moment from 'moment';
 import {BiCalendar} from "react-icons/bi";
 import { useParams } from "react-router-dom";
+import { GraphQLClient, gql } from "graphql-request";
+import { useQuery } from "react-query";
+import Loading from "../components/Loading";
+
+const API = "https://api-ap-south-1.hygraph.com/v2/clduo82jb0d1f01rt58iceeod/master";
+
+const GraphQLCMS = new GraphQLClient(API);
 
 const PostPage = () => {
-        const date = moment("2023-02-23T13:58:57.679062+00:00").format("YYYY-MM-DD");
-        const time = moment("2023-02-23T13:58:57.679062+00:00").format("HH:mm:ss");
-        const {id} = useParams();
-        
+        const {slug} = useParams();
+
+        const GrpahGQL = gql`
+                {
+                        post(
+                                where: {slug: \"${slug}\"}
+                              ) {
+                                imageurl
+                                slug
+                                tags
+                                title
+                                content {
+                                        html
+                                }
+                                publishedAt
+                                featured
+                                category
+                                author {
+                                  profile
+                                  name
+                                  tag
+                                }
+                        }
+                }
+        `
+
+        const fetchData = async () => {
+                const {post} = await GraphQLCMS.request(GrpahGQL);
+                return post;
+        }
+
+        const { data, status } = useQuery("post-ind-data", fetchData);
+
+
+        if (status == "loading")
+                return <Loading />
+
+        if (status == "error")
+                return <h1>Error</h1>
+
+                
+        const date = moment(data.publisedAt).format("YYYY-MM-DD");
+        const time = moment(data.publisedAt).format("HH:mm:ss");
+
         return (
                 <>
                         <header>
@@ -18,19 +64,22 @@ const PostPage = () => {
                         <main className="post-detail-section">
                                 <div className="container">
                                         <div className="text-content">
-                                                <h1 className="title">Why I love Italy – my favourite Italy experiences and places</h1>
+                                                <h1 className="title">{data.title}</h1>
                                                 <div className="title-info">
                                                         <div className="tag-container">
-                                                                <span>Code</span><span>React Js</span><span>AWS</span>
+                                                                {
+                                                                        data.tags.map((item, count) => (
+                                                                                <span key={count}>{item}</span>
+                                                                        ))
+                                                                }
                                                         </div>
                                                         <p className="published"><BiCalendar style={{marginRight: "0.3rem"}}/> Published on {date} at {time}</p>
                                                 </div>
                                         </div>
                                         <div className="img-container">
-                                                <img src="https://breakingmuscle.com/wp-content/uploads/2022/11/Shutterstock_2166325891.jpg" alt="" />
+                                                <img src={data.imageurl} alt="" />
                                         </div>
-                                        <div className="body-container">
-
+                                        <div className="body-container" dangerouslySetInnerHTML={{__html : data.content.html}}>
                                         </div>
                                         <div className="published-by">
                                                 <div className="heading">
@@ -38,11 +87,11 @@ const PostPage = () => {
                                                 </div>
                                                 <div className="profile-section">
                                                         <div className="img-container">
-                                                                <img src="https://images.unsplash.com/photo-1609010697446-11f2155278f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" />
+                                                                <img src={data.author.profile} alt="" />
                                                         </div>
                                                         <div className="text-content">
-                                                                <h3 className="profile-name">Peter van Eijk</h3>
-                                                                <p className="bio">Gymrat</p>
+                                                                <h3 className="profile-name">{data.author.name}</h3>
+                                                                <p className="bio">{data.author.tag}</p>
                                                         </div>
                                                 </div>
                                         </div>
