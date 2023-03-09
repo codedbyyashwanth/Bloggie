@@ -61,13 +61,13 @@ const Navbar = () => {
                                                         {
                                                                 data.filter(values => values.title.toLowerCase().includes(searchData.toLowerCase()) && searchData.length > 3).map((items, count) => (
                                                                         <div className="item" key={count}>
-                                                                                <Link to={`/posts/${items.slug}`}>
+                                                                                <a href={`/posts/${items.slug}`}>
                                                                                         <div className="img-container">
                                                                                                 <img src={items.imageurl} alt="" />
                                                                                         </div> 
-                                                                                </Link>
+                                                                                </a>
                                                                                 <div className="text-content">
-                                                                                        <h3><Link to={`/posts/${items.slug}`}>{items.title}</Link></h3>
+                                                                                        <h3><a href={`/posts/${items.slug}`}>{items.title}</a></h3>
                                                                                         <p>Written by <Link to={`/authors/${items.author.id}`}>{items.author.name}</Link></p>
                                                                                 </div>
                                                                         </div>
