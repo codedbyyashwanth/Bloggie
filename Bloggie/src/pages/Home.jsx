@@ -11,8 +11,7 @@ import Loading from "../components/Loading";
 
 import { gql, GraphQLClient } from "graphql-request";
 import { useQuery } from "react-query";
-const API_KEY = "https://api-ap-south-1.hygraph.com/v2/clduo82jb0d1f01rt58iceeod/master";
-const GraphCMS = new GraphQLClient(API_KEY);
+const GraphCMS = new GraphQLClient(import.meta.env.VITE_SECRET_KEY);
 
 const GQLData = gql`
 {

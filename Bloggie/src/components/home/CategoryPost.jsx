@@ -6,9 +6,7 @@ import { useQuery } from "react-query";
 import Card from "./Card";
 import Loading from "../Loading";
 
-const API = "https://api-ap-south-1.hygraph.com/v2/clduo82jb0d1f01rt58iceeod/master";
-
-const GraphQLCMS = new GraphQLClient(API);
+const GraphQLCMS = new GraphQLClient(import.meta.env.VITE_SECRET_KEY);
 const images = {
         Travel : "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
         Food : "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",

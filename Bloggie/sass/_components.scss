@@ -1275,3 +1275,24 @@ footer {
                 }
         }
 }
+
+.body-container {
+
+        * {
+                letter-spacing: 0.4px;
+                // line-height: 30px;
+        }
+
+        img {
+                width: 100%;
+        }
+
+        p {
+                line-height: 27px;
+                color: rgba($black-color, 0.8);
+        }
+
+        h1, h2, h3, h4, h5 {
+                margin: 2rem 0 1rem 0;
+        }
+}

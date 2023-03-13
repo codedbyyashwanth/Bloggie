@@ -6,9 +6,8 @@ import { GraphQLClient, gql } from "graphql-request";
 import { useQuery } from "react-query";
 import Loading from "../components/Loading";
 import { Link } from "react-router-dom";
-const API = "https://api-ap-south-1.hygraph.com/v2/clduo82jb0d1f01rt58iceeod/master";
 
-const GraphQLCMS = new GraphQLClient(API);
+const GraphQLCMS = new GraphQLClient(import.meta.env.VITE_SECRET_KEY);
 
 
 const Author = () => {
