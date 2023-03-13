@@ -1460,6 +1460,20 @@ footer .copy-right-section h4 {
   color: rgba(35, 35, 35, 0.8);
 }
 
+.body-container * {
+  letter-spacing: 0.4px;
+}
+.body-container img {
+  width: 100%;
+}
+.body-container p {
+  line-height: 27px;
+  color: rgba(35, 35, 35, 0.8);
+}
+.body-container h1, .body-container h2, .body-container h3, .body-container h4, .body-container h5 {
+  margin: 2rem 0 1rem 0;
+}
+
 * {
   margin: 0;
   padding: 0;
